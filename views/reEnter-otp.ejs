@@ -1,0 +1,39 @@
+<%- include('partials/auth-header') %>
+<div class="container register">
+    <center><font color="white"><h1>Campus Cloud</h1></font></center>
+    <br><br>
+    <div class="row">
+        <div class="col-md-3 register-left">
+            <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
+            <h3>Welcome</h3>
+            <p>You are one step away from your seniors ! Everything at one place. Here we go !!! </p>
+        </div>
+        <div class="col-md-9 register-right">
+                <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <h3  class="register-heading">Verify OTP</h3>
+                    <form action="/reEnter-otp" method="post">
+                    <div class="row register-form ">
+                            
+                                <div class="form-group  col-md-12" style="padding-left: 10%; padding-right: 10%;">
+                                    <center><input type="text" class="form-control" placeholder=" Enter OTP" value=""  style="width: 300px; " onchange="submit" name ="otp" id="otp"  required/></center>
+                                <% if (!isVerified) { %>
+                                    <br>
+                                    <center><div class=" text-center alert alert-warning alert-dismissible fade show"  style="width: 300px;"  role="alert">
+                                        Invalid OTP
+                                       <button type="button" class="close" data-dismiss="alert"aria-label="Close">
+                                           <span aria-hidden="true">&times;</span>
+                                       </button>
+                                   </div></center>
+                                <% }%>
+                                </div>
+                        <div class="col-md-12" style="padding-left:10%; padding-right: 10%;">
+                            <center><input type="submit" class="btnRegister"  value="Verify" style="height: 50px; width:100px;"/></center>
+                        </div>                               
+                        </div>
+                    </form>
+                </div>
+        </div>
+    </div>
+
+</div>
+<%- include('partials/auth-footer') %>

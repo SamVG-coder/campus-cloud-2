@@ -1,0 +1,108 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+	<link rel="stylesheet" href="project.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light"> 
+      <a class="navbar-brand" href="#">Categories</a> 
+      
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> 
+      <span class="navbar-toggler-icon"></span> 
+      </button> 
+      
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+       
+      <ul class="navbar-nav mr-auto"> 
+      
+      <li class="nav-item "> 
+      <a class="nav-link" href="/">Home <span class="sr-only">(current)</span>
+      </a>
+      </li> 
+      
+      <li class="nav-item"> <a class="nav-link" href="/interview">Interview Questions</a> </li>
+      <li class="nav-item"> <a class="nav-link " href="/miniproject">Mini Projects</a> </li>
+      <li class="nav-item"> <a class="nav-link active" href="/majorproject">Major Projects</a> </li>
+      <li class="nav-item"> <a class="nav-link" href="#">Study Materials</a></li> 
+      </ul>
+      </div>
+      </nav>
+  <div class="jumbotron jumbotron-fluid" >
+  
+   <div >
+   <div class="container" >
+  <div class="w-100 p-1" >
+    <h1 class="display-4 " ><b> Major Project</b></h1>
+    <p class="lead" style="color: #ffff66 ;">Use Domain option to sort the list of Mini Project. </p>
+
+    <p class="lead"></p>
+	<div class="dropdown">
+<button class="dropbtn">Select Domain</button>
+<div class="dropdown-content">
+  <form action="/majorproject" method="POST">
+    <input class="buttons" type="submit" name ="domain" value="Android Development"/>
+    <input class="buttons" type="submit" name ="domain" value="Big Data Analysis"/>
+  <input class="buttons" type="submit" name ="domain" value="Computer Vision"/>
+  <input class="buttons" type="submit" name ="domain" value="IOT"/>
+  <input class="buttons" type="submit" name ="domain" value="Machine Learning"/>
+  <input class="buttons" type="submit" name ="domain" value="Web Technologies"/>
+  <input class="buttons" type="submit" name ="domain" value="Web Technologies"/>
+  <input class="buttons" type="submit" name ="domain" value="All"/>  
+  </form>
+
+
+</div>
+</div>
+<form action="/majorproject" method="post">
+<div class="d-flex justify-content-left h-100" >
+  <div class="searchbar"> 
+    <input class="search_input" type="text" name="userInput" placeholder="Enter the project or mentor's name... " required />
+    <button type="submit" class="search_icon"><i class="fas fa-search"></i></button>
+  </div>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<% if(typeof projects != 'undefined'){ %> 
+  <b style="font-size: 40px; padding-left:10px;"> Search Results for  " <%= searched%> " :</b>
+  <% projects.forEach(function (project) { %> 
+    <div style="margin-bottom:0em;padding: 3%;">
+  <div  class="alert alert-success alert-dismissible fade show" role="alert" style="margin-bottom:0em;padding: 1%;">
+   <b>Title : &nbsp;</b>  <%= project.projectName%>
+   <br><b>Domain : &nbsp;</b>  <%= project.domain%>
+   <br><b>Batch : &nbsp;</b>  <%= project.batch%>
+   <br><b>Academic Year : &nbsp;</b>  <%= project.academicYear%>
+   <br><b> Description : &nbsp;</b>  <%= project.description%>
+   <br><b>Under the Guidance of : &nbsp;</b> <%= project.guide %>  
+   <br><b>Team : &nbsp;</b>  
+   <% project.teamMates.forEach(function (element) { %>   
+      <%= element.name  %>  
+      (<%= element.usn  %>)     
+      &nbsp; 
+      <% });%> 
+    </div>
+  </div>    
+    <% }); %> 
+
+  <% } %>
+  
+
+    <div class="container h-100" >
+      <b style="font-size: 30px;"> About Major Project :</b>
+
+	  <p class="lead"><h5>Before you can earn an undergraduate degree majoring in Computer Science, you need to complete a project to demonstrate practical application of the skills that you have learned. In most cases, you are given the option of what types of undergraduate projects you want to complete to demonstrate your ability to use content that you have covered throughout the degree program.</h5> </p>
+
+      <p class="lead"><h5>The purpose of project is to ensure that students learn the theoretical and practical skills that they need. It is important that students apply everything they learned in the real world. Senior projects, therefore, are required for ideas and guidance.While some students see the projects as yet another thing to do, you should welcome these computing sciences projects as an opportunity to expand your mind and show off your skills.</h5> </p>
+    </div>
+  </body>
+</html>
